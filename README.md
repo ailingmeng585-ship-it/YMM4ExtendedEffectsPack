@@ -1,0 +1,2 @@
+# YMM4ExtendedEffectsPack
+いろんなYMM4のエフェクトやトランジションを詰め込んだプラグインです

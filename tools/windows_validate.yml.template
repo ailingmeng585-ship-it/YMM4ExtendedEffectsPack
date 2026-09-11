@@ -1,0 +1,51 @@
+name: Windows build and GPU validation
+on:
+  push:
+    branches: [main, genspark_ai_developer]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Get official YMM4 SDK (not redistributed)
+        shell: pwsh
+        run: |
+          $url = 'https://object-storage.tyo1.conoha.io/v1/nc_4fac3ef0e6d843249e0ab2f1fc3e8f85/public/YukkuriMovieMaker_v4_Lite.zip'
+          curl.exe --fail --location --retry 3 $url --output ymm.zip
+          if ($LASTEXITCODE) { throw 'SDK download failed' }
+          Expand-Archive ymm.zip .sdk
+          "YMM4_DIR=$((Resolve-Path .sdk).Path)" >> $env:GITHUB_ENV
+          Get-FileHash .sdk/YukkuriMovieMaker.Plugin.dll -Algorithm SHA256
+      - name: Build actual plugin and tests
+        run: dotnet build tests/Windows -c Release --warnaserror
+      - name: Test shader compilation, serialization and WARP rendering
+        shell: pwsh
+        run: |
+          $out = 'tests/Windows/bin/Release/net10.0-windows10.0.19041.0'
+          Copy-Item .sdk/*.dll $out -Force
+          & "$out/YMM4.ExtendedEffectsPack.Tests.exe"
+          if ($LASTEXITCODE) { throw 'Windows integration tests failed' }
+      - name: Package single-assembly plugin
+        shell: pwsh
+        run: |
+          New-Item artifacts -ItemType Directory -Force
+          $dll = 'src/YMM4.ExtendedEffectsPack/bin/Release/net10.0-windows10.0.19041.0/YMM4.ExtendedEffectsPack.dll'
+          Copy-Item $dll artifacts
+          Compress-Archive -Path $dll -DestinationPath artifacts/pack.zip
+          Move-Item artifacts/pack.zip artifacts/YMM4.ExtendedEffectsPack.ymme
+          Get-FileHash artifacts/* -Algorithm SHA256 | Format-Table
+      - uses: actions/upload-artifact@v4
+        with:
+          name: YMM4.ExtendedEffectsPack-windows-validated
+          path: artifacts/*

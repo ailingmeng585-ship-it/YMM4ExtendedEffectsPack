@@ -1,0 +1,1440 @@
+[
+  {
+    "key": "TheaterCurtain",
+    "name": "劇場カーテン",
+    "transition": true,
+    "params": [
+      {
+        "key": "Progress",
+        "label": "進行度",
+        "type": "number",
+        "default": 0,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      },
+      {
+        "key": "Opening",
+        "label": "開き方",
+        "type": "enum",
+        "options": [
+          "中央両開き",
+          "左へ片引き",
+          "右へ片引き"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Folds",
+        "label": "ヒダの数",
+        "type": "number",
+        "default": 12,
+        "low": 4,
+        "high": 30,
+        "unit": ""
+      },
+      {
+        "key": "Gloss",
+        "label": "ベルベット光沢",
+        "type": "bool",
+        "default": true
+      },
+      {
+        "key": "Fringe",
+        "label": "金フリンジ",
+        "type": "bool",
+        "default": true
+      },
+      {
+        "key": "Tint",
+        "label": "カーテン色",
+        "type": "color",
+        "default": [
+          138,
+          11,
+          26
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "クラシック深紅",
+        "values": {}
+      },
+      {
+        "name": "エレガントゴールド",
+        "values": {
+          "Tint": [
+            202,
+            157,
+            46
+          ],
+          "Folds": 18
+        }
+      },
+      {
+        "name": "モダンブラック",
+        "values": {
+          "Tint": [
+            20,
+            20,
+            24
+          ],
+          "Gloss": false,
+          "Fringe": false
+        }
+      },
+      {
+        "name": "ロイヤルブルー",
+        "values": {
+          "Tint": [
+            25,
+            40,
+            145
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "key": "Blink",
+    "name": "まばたき",
+    "transition": true,
+    "params": [
+      {
+        "key": "Progress",
+        "label": "開き具合",
+        "type": "number",
+        "default": 100,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      },
+      {
+        "key": "AutoLoop",
+        "label": "自動ループ",
+        "type": "bool",
+        "default": false
+      },
+      {
+        "key": "Frequency",
+        "label": "まばたき頻度",
+        "type": "number",
+        "default": 18,
+        "low": 5,
+        "high": 60,
+        "unit": "回/分"
+      },
+      {
+        "key": "Blur",
+        "label": "ピンボケ強度",
+        "type": "number",
+        "default": 8,
+        "low": 0,
+        "high": 20,
+        "unit": "px"
+      },
+      {
+        "key": "Tint",
+        "label": "まぶたの色",
+        "type": "color",
+        "default": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "目覚め",
+        "values": {
+          "Progress": 0,
+          "Blur": 18
+        }
+      },
+      {
+        "name": "通常まばたき",
+        "values": {
+          "Blur": 4
+        }
+      },
+      {
+        "name": "気絶・意識消失",
+        "values": {
+          "Progress": 10,
+          "Blur": 20
+        }
+      },
+      {
+        "name": "自動パチパチ",
+        "values": {
+          "AutoLoop": true,
+          "Frequency": 18,
+          "Blur": 2
+        }
+      }
+    ]
+  },
+  {
+    "key": "RetroPixelate",
+    "name": "ピクセル化",
+    "transition": false,
+    "params": [
+      {
+        "key": "SizeX",
+        "label": "ピクセルサイズX",
+        "type": "number",
+        "default": 16,
+        "low": 1,
+        "high": 200,
+        "unit": "px"
+      },
+      {
+        "key": "SizeY",
+        "label": "ピクセルサイズY",
+        "type": "number",
+        "default": 16,
+        "low": 1,
+        "high": 200,
+        "unit": "px"
+      },
+      {
+        "key": "Shape",
+        "label": "ドット形状",
+        "type": "enum",
+        "options": [
+          "四角",
+          "円形",
+          "六角"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Palette",
+        "label": "減色",
+        "type": "enum",
+        "options": [
+          "OFF",
+          "16色",
+          "64色",
+          "ゲームボーイ4階調"
+        ],
+        "default": 1
+      },
+      {
+        "key": "Grid",
+        "label": "グリッド線",
+        "type": "bool",
+        "default": false
+      },
+      {
+        "key": "GridOpacity",
+        "label": "グリッド不透明度",
+        "type": "number",
+        "default": 0.6,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Dither",
+        "label": "ディザリング",
+        "type": "bool",
+        "default": true
+      },
+      {
+        "key": "Tint",
+        "label": "グリッド線色",
+        "type": "color",
+        "default": [
+          12,
+          12,
+          15
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "レトロ16色",
+        "values": {}
+      },
+      {
+        "name": "ゲームボーイ風",
+        "values": {
+          "Palette": 3,
+          "SizeX": 8,
+          "SizeY": 8
+        }
+      },
+      {
+        "name": "ヘックス",
+        "values": {
+          "Shape": 2,
+          "Grid": true,
+          "Palette": 0
+        }
+      },
+      {
+        "name": "実用モザイク",
+        "values": {
+          "Palette": 0,
+          "Dither": false,
+          "SizeX": 32,
+          "SizeY": 32
+        }
+      }
+    ]
+  },
+  {
+    "key": "Heartbeat",
+    "name": "鼓動",
+    "transition": false,
+    "params": [
+      {
+        "key": "Mode",
+        "label": "鼓動モード",
+        "type": "enum",
+        "options": [
+          "ドッ・クン二連撃",
+          "サイン波"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Bpm",
+        "label": "BPM",
+        "type": "number",
+        "default": 75,
+        "low": 30,
+        "high": 240,
+        "unit": ""
+      },
+      {
+        "key": "Scale",
+        "label": "拡縮強度",
+        "type": "number",
+        "default": 8,
+        "low": 0,
+        "high": 30,
+        "unit": "%"
+      },
+      {
+        "key": "Flash",
+        "label": "周辺フラッシュ",
+        "type": "number",
+        "default": 0.5,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Chromatic",
+        "label": "色収差ブレ",
+        "type": "number",
+        "default": 5,
+        "low": 0,
+        "high": 15,
+        "unit": "px"
+      },
+      {
+        "key": "Tint",
+        "label": "フラッシュ色",
+        "type": "color",
+        "default": [
+          128,
+          0,
+          0
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "緊迫の心拍",
+        "values": {
+          "Bpm": 120
+        }
+      },
+      {
+        "name": "恐怖・瀕死",
+        "values": {
+          "Bpm": 40,
+          "Scale": 4,
+          "Flash": 0.7
+        }
+      },
+      {
+        "name": "ポップ弾み",
+        "values": {
+          "Mode": 1,
+          "Bpm": 100,
+          "Scale": 12,
+          "Flash": 0,
+          "Chromatic": 0
+        }
+      }
+    ]
+  },
+  {
+    "key": "RgbGaming",
+    "name": "七色ゲーミング",
+    "transition": false,
+    "params": [
+      {
+        "key": "Mode",
+        "label": "発光モード",
+        "type": "enum",
+        "options": [
+          "全体色相回転",
+          "流動光波",
+          "輪郭ネオン"
+        ],
+        "default": 1
+      },
+      {
+        "key": "Speed",
+        "label": "回転速度",
+        "type": "number",
+        "default": 5,
+        "low": 0,
+        "high": 50,
+        "unit": ""
+      },
+      {
+        "key": "Angle",
+        "label": "波の角度",
+        "type": "number",
+        "default": 45,
+        "low": 0,
+        "high": 360,
+        "unit": "°"
+      },
+      {
+        "key": "Intensity",
+        "label": "発光強度",
+        "type": "number",
+        "default": 2,
+        "low": 1,
+        "high": 5,
+        "unit": ""
+      },
+      {
+        "key": "Blend",
+        "label": "合成モード",
+        "type": "enum",
+        "options": [
+          "通常",
+          "加算",
+          "スクリーン",
+          "色相置換"
+        ],
+        "default": 0
+      }
+    ],
+    "presets": [
+      {
+        "name": "激流ウェーブ",
+        "values": {}
+      },
+      {
+        "name": "爆速カラー",
+        "values": {
+          "Speed": 40,
+          "Intensity": 4,
+          "Blend": 1
+        }
+      },
+      {
+        "name": "ネオン輪郭",
+        "values": {
+          "Mode": 2,
+          "Speed": 3
+        }
+      },
+      {
+        "name": "ゆったりムーディー",
+        "values": {
+          "Speed": 0.4,
+          "Intensity": 1,
+          "Blend": 2
+        }
+      }
+    ]
+  },
+  {
+    "key": "BlockWave",
+    "name": "ブロックウェーブ",
+    "transition": true,
+    "params": [
+      {
+        "key": "Count",
+        "label": "分割数",
+        "type": "number",
+        "default": 20,
+        "low": 5,
+        "high": 100,
+        "unit": ""
+      },
+      {
+        "key": "Direction",
+        "label": "波の進行方向",
+        "type": "enum",
+        "options": [
+          "水平",
+          "垂直",
+          "中央放射"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Waveform",
+        "label": "波の形状",
+        "type": "enum",
+        "options": [
+          "正弦波",
+          "デジタルステップ"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Amplitude",
+        "label": "ズレ強度",
+        "type": "number",
+        "default": 30,
+        "low": 0,
+        "high": 150,
+        "unit": "px"
+      },
+      {
+        "key": "Speed",
+        "label": "波の速度",
+        "type": "number",
+        "default": 2,
+        "low": 0.1,
+        "high": 10,
+        "unit": ""
+      },
+      {
+        "key": "Border",
+        "label": "ブロック境界線",
+        "type": "bool",
+        "default": true
+      },
+      {
+        "key": "Progress",
+        "label": "進行度（切替用）",
+        "type": "number",
+        "default": 100,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      }
+    ],
+    "presets": [
+      {
+        "name": "デジタル水平波",
+        "values": {
+          "Waveform": 1
+        }
+      },
+      {
+        "name": "中央リップル",
+        "values": {
+          "Direction": 2,
+          "Count": 35
+        }
+      },
+      {
+        "name": "立体ブロック",
+        "values": {
+          "Count": 10,
+          "Amplitude": 60
+        }
+      }
+    ]
+  },
+  {
+    "key": "LivingFlame",
+    "name": "炎・画像炎化",
+    "transition": false,
+    "params": [
+      {
+        "key": "Distortion",
+        "label": "うねり変形度",
+        "type": "number",
+        "default": 30,
+        "low": 0,
+        "high": 100,
+        "unit": ""
+      },
+      {
+        "key": "Speed",
+        "label": "揺らぎ速度",
+        "type": "number",
+        "default": 3,
+        "low": 0.1,
+        "high": 10,
+        "unit": ""
+      },
+      {
+        "key": "Colorize",
+        "label": "炎着色",
+        "type": "bool",
+        "default": true
+      },
+      {
+        "key": "Palette",
+        "label": "炎パレット",
+        "type": "enum",
+        "options": [
+          "赤黄オレンジ",
+          "青白い炎",
+          "紫炎"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Sparks",
+        "label": "火の粉",
+        "type": "bool",
+        "default": true
+      },
+      {
+        "key": "Dissolve",
+        "label": "燃焼ディゾルブ",
+        "type": "number",
+        "default": 0,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      },
+      {
+        "key": "ColorMix",
+        "label": "着色ブレンド",
+        "type": "number",
+        "default": 0.85,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      }
+    ],
+    "presets": [
+      {
+        "name": "紅蓮の業火",
+        "values": {}
+      },
+      {
+        "name": "陽炎・元色保持",
+        "values": {
+          "Colorize": false,
+          "Sparks": false,
+          "Distortion": 12
+        }
+      },
+      {
+        "name": "青い鬼火",
+        "values": {
+          "Palette": 1
+        }
+      },
+      {
+        "name": "紫の魔炎",
+        "values": {
+          "Palette": 2
+        }
+      }
+    ]
+  },
+  {
+    "key": "GodRays",
+    "name": "ゴッドレイ・多条光線",
+    "transition": false,
+    "params": [
+      {
+        "key": "LightX",
+        "label": "光源X",
+        "type": "number",
+        "default": 0.5,
+        "low": -1,
+        "high": 2,
+        "unit": ""
+      },
+      {
+        "key": "LightY",
+        "label": "光源Y",
+        "type": "number",
+        "default": -0.2,
+        "low": -1,
+        "high": 2,
+        "unit": ""
+      },
+      {
+        "key": "Density",
+        "label": "光筋の密度",
+        "type": "number",
+        "default": 24,
+        "low": 5,
+        "high": 50,
+        "unit": ""
+      },
+      {
+        "key": "Length",
+        "label": "光条の長さ",
+        "type": "number",
+        "default": 0.85,
+        "low": 0.1,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Noise",
+        "label": "雲間ノイズ",
+        "type": "number",
+        "default": 0.6,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Width",
+        "label": "光筋の太さ",
+        "type": "number",
+        "default": 0.4,
+        "low": 0.05,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Tint",
+        "label": "光の色",
+        "type": "color",
+        "default": [
+          255,
+          243,
+          208
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "降り注ぐ木漏れ日",
+        "values": {}
+      },
+      {
+        "name": "神の降臨",
+        "values": {
+          "LightY": 0.5,
+          "Density": 40,
+          "Noise": 0.25
+        }
+      },
+      {
+        "name": "夕日サンセット",
+        "values": {
+          "LightX": 1.1,
+          "LightY": 0.15,
+          "Tint": [
+            255,
+            134,
+            48
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "key": "MatrixRain",
+    "name": "マトリックス",
+    "transition": true,
+    "params": [
+      {
+        "key": "Mode",
+        "label": "合成モード",
+        "type": "enum",
+        "options": [
+          "コード重ね",
+          "画像コード分解"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Speed",
+        "label": "落下速度",
+        "type": "number",
+        "default": 2.5,
+        "low": 0.5,
+        "high": 10,
+        "unit": ""
+      },
+      {
+        "key": "Size",
+        "label": "文字サイズ",
+        "type": "number",
+        "default": 18,
+        "low": 8,
+        "high": 48,
+        "unit": "px"
+      },
+      {
+        "key": "Charset",
+        "label": "文字種",
+        "type": "enum",
+        "options": [
+          "英数・記号",
+          "カタカナ混じり",
+          "01バイナリ"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Tail",
+        "label": "残光の長さ",
+        "type": "number",
+        "default": 14,
+        "low": 5,
+        "high": 30,
+        "unit": "文字"
+      },
+      {
+        "key": "Progress",
+        "label": "進行度（切替用）",
+        "type": "number",
+        "default": 100,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      },
+      {
+        "key": "Tint",
+        "label": "文字カラー",
+        "type": "color",
+        "default": [
+          0,
+          255,
+          65
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "クラシックグリーン",
+        "values": {}
+      },
+      {
+        "name": "元画像コード分解",
+        "values": {
+          "Mode": 1
+        }
+      },
+      {
+        "name": "01バイナリ雨",
+        "values": {
+          "Charset": 2,
+          "Size": 14
+        }
+      }
+    ]
+  },
+  {
+    "key": "Thunder",
+    "name": "サンダー",
+    "transition": false,
+    "params": [
+      {
+        "key": "Mode",
+        "label": "動作モード",
+        "type": "enum",
+        "options": [
+          "落雷フラッシュ",
+          "輪郭帯電オーラ"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Frequency",
+        "label": "バチバチ頻度",
+        "type": "number",
+        "default": 12,
+        "low": 1,
+        "high": 30,
+        "unit": "fps"
+      },
+      {
+        "key": "Thickness",
+        "label": "稲妻の太さ",
+        "type": "number",
+        "default": 4,
+        "low": 1,
+        "high": 20,
+        "unit": "px"
+      },
+      {
+        "key": "Jaggedness",
+        "label": "ギザギザ・分岐度",
+        "type": "number",
+        "default": 6,
+        "low": 1,
+        "high": 10,
+        "unit": ""
+      },
+      {
+        "key": "Flash",
+        "label": "閃光強度",
+        "type": "number",
+        "default": 0.7,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Tint",
+        "label": "電撃カラー",
+        "type": "color",
+        "default": [
+          176,
+          226,
+          255
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "超雷撃",
+        "values": {}
+      },
+      {
+        "name": "覚醒帯電オーラ",
+        "values": {
+          "Mode": 1,
+          "Flash": 0
+        }
+      },
+      {
+        "name": "漆黒の魔雷",
+        "values": {
+          "Mode": 1,
+          "Tint": [
+            174,
+            50,
+            255
+          ],
+          "Flash": 0
+        }
+      }
+    ]
+  },
+  {
+    "key": "CameraShakeZoom",
+    "name": "スマートズームブラー＆シェイク",
+    "transition": false,
+    "params": [
+      {
+        "key": "Shake",
+        "label": "揺れ強度",
+        "type": "number",
+        "default": 25,
+        "low": 0,
+        "high": 100,
+        "unit": "px"
+      },
+      {
+        "key": "Blur",
+        "label": "放射ブラー強度",
+        "type": "number",
+        "default": 0.4,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Frequency",
+        "label": "振動速度",
+        "type": "number",
+        "default": 24,
+        "low": 1,
+        "high": 60,
+        "unit": "Hz"
+      },
+      {
+        "key": "Zoom",
+        "label": "中心ズーム率",
+        "type": "number",
+        "default": 12,
+        "low": 0,
+        "high": 50,
+        "unit": "%"
+      },
+      {
+        "key": "Decay",
+        "label": "減衰時間",
+        "type": "number",
+        "default": 0.5,
+        "low": 0.1,
+        "high": 2,
+        "unit": "秒"
+      }
+    ],
+    "presets": [
+      {
+        "name": "ビートドロップ",
+        "values": {}
+      },
+      {
+        "name": "激震ツッコミ",
+        "values": {
+          "Shake": 70,
+          "Blur": 0.65,
+          "Decay": 0.3
+        }
+      },
+      {
+        "name": "映画的スロー",
+        "values": {
+          "Shake": 8,
+          "Frequency": 5,
+          "Decay": 1.5
+        }
+      }
+    ]
+  },
+  {
+    "key": "FilmBurn",
+    "name": "フィルムバーン＆ライトリーク",
+    "transition": true,
+    "params": [
+      {
+        "key": "Progress",
+        "label": "進行度",
+        "type": "number",
+        "default": 0,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      },
+      {
+        "key": "Palette",
+        "label": "光の色調",
+        "type": "enum",
+        "options": [
+          "ウォームオレンジ",
+          "パステルプリズム",
+          "クールシアン"
+        ],
+        "default": 0
+      },
+      {
+        "key": "Width",
+        "label": "感光の広がり幅",
+        "type": "number",
+        "default": 0.8,
+        "low": 0.1,
+        "high": 2,
+        "unit": ""
+      },
+      {
+        "key": "Grain",
+        "label": "フィルム粒子",
+        "type": "bool",
+        "default": true
+      },
+      {
+        "key": "Darken",
+        "label": "焼きつき暗転",
+        "type": "bool",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "ヴィンテージオレンジ",
+        "values": {}
+      },
+      {
+        "name": "シネマティックプリズム",
+        "values": {
+          "Palette": 1,
+          "Width": 1.2
+        }
+      },
+      {
+        "name": "フラッシュ切替",
+        "values": {
+          "Width": 1.8,
+          "Grain": false
+        }
+      }
+    ]
+  },
+  {
+    "key": "MotionGhost",
+    "name": "モーションゴースト・RGB残像",
+    "transition": false,
+    "params": [
+      {
+        "key": "Delay",
+        "label": "残像遅延",
+        "type": "number",
+        "default": 6,
+        "low": 1,
+        "high": 30,
+        "unit": "フレーム"
+      },
+      {
+        "key": "Opacity",
+        "label": "ゴースト不透明度",
+        "type": "number",
+        "default": 0.5,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Split",
+        "label": "RGB分離強度",
+        "type": "number",
+        "default": 15,
+        "low": 0,
+        "high": 50,
+        "unit": "px"
+      },
+      {
+        "key": "Echo",
+        "label": "拡大エコー率",
+        "type": "number",
+        "default": 5,
+        "low": 0,
+        "high": 30,
+        "unit": "%"
+      },
+      {
+        "key": "Fade",
+        "label": "フェードアウト速度",
+        "type": "number",
+        "default": 2,
+        "low": 1,
+        "high": 5,
+        "unit": ""
+      }
+    ],
+    "presets": [
+      {
+        "name": "RGBスプリットゴースト",
+        "values": {}
+      },
+      {
+        "name": "半透明エコー",
+        "values": {
+          "Split": 0,
+          "Delay": 12,
+          "Echo": 10
+        }
+      },
+      {
+        "name": "フラッシュ残像",
+        "values": {
+          "Delay": 3,
+          "Opacity": 0.8,
+          "Fade": 4
+        }
+      }
+    ]
+  },
+  {
+    "key": "VhsGlitch",
+    "name": "レトロVHSグリッチ",
+    "transition": false,
+    "params": [
+      {
+        "key": "Intensity",
+        "label": "グリッチ強度",
+        "type": "number",
+        "default": 0.3,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Scanlines",
+        "label": "走査線濃度",
+        "type": "number",
+        "default": 0.4,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Tracking",
+        "label": "下部トラッキング帯",
+        "type": "bool",
+        "default": true
+      },
+      {
+        "key": "Frequency",
+        "label": "水平同期ズレ頻度",
+        "type": "number",
+        "default": 0.3,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Fade",
+        "label": "テープ色あせ",
+        "type": "bool",
+        "default": true
+      }
+    ],
+    "presets": [
+      {
+        "name": "80sホームビデオ",
+        "values": {}
+      },
+      {
+        "name": "激しいトラッキング",
+        "values": {
+          "Intensity": 0.9,
+          "Frequency": 0.8
+        }
+      },
+      {
+        "name": "深夜のホラーテープ",
+        "values": {
+          "Intensity": 0.6,
+          "Scanlines": 0.8
+        }
+      }
+    ]
+  },
+  {
+    "key": "InkBleed",
+    "name": "インクにじみ",
+    "transition": true,
+    "params": [
+      {
+        "key": "Progress",
+        "label": "進行度",
+        "type": "number",
+        "default": 0,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      },
+      {
+        "key": "Scale",
+        "label": "にじみ粒度",
+        "type": "number",
+        "default": 6,
+        "low": 1,
+        "high": 20,
+        "unit": ""
+      },
+      {
+        "key": "Softness",
+        "label": "にじみ幅",
+        "type": "number",
+        "default": 0.12,
+        "low": 0.01,
+        "high": 0.5,
+        "unit": ""
+      },
+      {
+        "key": "Seed",
+        "label": "シード",
+        "type": "number",
+        "default": 7,
+        "low": 0,
+        "high": 1000,
+        "unit": ""
+      },
+      {
+        "key": "CenterX",
+        "label": "中心X",
+        "type": "number",
+        "default": 0.5,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "CenterY",
+        "label": "中心Y",
+        "type": "number",
+        "default": 0.5,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Tint",
+        "label": "インク縁色",
+        "type": "color",
+        "default": [
+          25,
+          18,
+          38
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "水彩にじみ",
+        "values": {}
+      },
+      {
+        "name": "墨の飛沫",
+        "values": {
+          "Scale": 12,
+          "Softness": 0.04,
+          "Tint": [
+            3,
+            3,
+            3
+          ]
+        }
+      },
+      {
+        "name": "パステルインク",
+        "values": {
+          "Scale": 3,
+          "Softness": 0.3,
+          "Tint": [
+            194,
+            104,
+            171
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "key": "LumaMelt",
+    "name": "ルミナンス・メルト",
+    "transition": true,
+    "params": [
+      {
+        "key": "Progress",
+        "label": "進行度",
+        "type": "number",
+        "default": 0,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      },
+      {
+        "key": "Softness",
+        "label": "境界の柔らかさ",
+        "type": "number",
+        "default": 0.1,
+        "low": 0.01,
+        "high": 0.5,
+        "unit": ""
+      },
+      {
+        "key": "Distortion",
+        "label": "溶ける変形",
+        "type": "number",
+        "default": 20,
+        "low": 0,
+        "high": 100,
+        "unit": "px"
+      },
+      {
+        "key": "BrightFirst",
+        "label": "明るい場所から",
+        "type": "bool",
+        "default": true
+      }
+    ],
+    "presets": [
+      {
+        "name": "ハイライト溶解",
+        "values": {}
+      },
+      {
+        "name": "暗部から溶解",
+        "values": {
+          "BrightFirst": false
+        }
+      },
+      {
+        "name": "液状メルト",
+        "values": {
+          "Distortion": 80,
+          "Softness": 0.25
+        }
+      }
+    ]
+  },
+  {
+    "key": "PrismWhip",
+    "name": "プリズム・ウィップ",
+    "transition": true,
+    "params": [
+      {
+        "key": "Progress",
+        "label": "進行度",
+        "type": "number",
+        "default": 0,
+        "low": 0,
+        "high": 100,
+        "unit": "%"
+      },
+      {
+        "key": "Angle",
+        "label": "パン角度",
+        "type": "number",
+        "default": 0,
+        "low": 0,
+        "high": 360,
+        "unit": "°"
+      },
+      {
+        "key": "Blur",
+        "label": "方向ブラー",
+        "type": "number",
+        "default": 0.5,
+        "low": 0,
+        "high": 1,
+        "unit": ""
+      },
+      {
+        "key": "Chromatic",
+        "label": "色収差",
+        "type": "number",
+        "default": 12,
+        "low": 0,
+        "high": 40,
+        "unit": "px"
+      },
+      {
+        "key": "Zoom",
+        "label": "ズーム",
+        "type": "number",
+        "default": 15,
+        "low": 0,
+        "high": 50,
+        "unit": "%"
+      }
+    ],
+    "presets": [
+      {
+        "name": "水平ウィップ",
+        "values": {}
+      },
+      {
+        "name": "縦ウィップ",
+        "values": {
+          "Angle": 90
+        }
+      },
+      {
+        "name": "斜めプリズム",
+        "values": {
+          "Angle": 35,
+          "Chromatic": 30,
+          "Blur": 0.8
+        }
+      }
+    ]
+  }
+]

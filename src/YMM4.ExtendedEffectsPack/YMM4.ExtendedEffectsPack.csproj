@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+    <Version>0.1.0</Version>
+    <Ymm4Dir Condition="'$(Ymm4Dir)' == ''">$(YMM4_DIR)</Ymm4Dir>
+    <PathMap>$(MSBuildProjectDirectory)=/src/YMM4.ExtendedEffectsPack</PathMap>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="YukkuriMovieMaker.Plugin;YukkuriMovieMaker.Controls;Vortice.Direct2D1;Vortice.DirectX;Vortice.Mathematics;SharpGen.Runtime;SharpGen.Runtime.COM;Newtonsoft.Json">
+      <HintPath>$(Ymm4Dir)/%(Identity).dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <EmbeddedResource Include="Shaders/*.hlsl" />
+    <InternalsVisibleTo Include="YMM4.ExtendedEffectsPack.Tests" />
+  </ItemGroup>
+  <Target Name="CheckYmmSdk" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(Ymm4Dir)/YukkuriMovieMaker.Plugin.dll')" Text="Set YMM4_DIR or -p:Ymm4Dir to your YMM4 v4.47+ installation folder (.NET 10)." />
+  </Target>
+</Project>

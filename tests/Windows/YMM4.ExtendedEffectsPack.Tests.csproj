@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <Ymm4Dir Condition="'$(Ymm4Dir)' == ''">$(YMM4_DIR)</Ymm4Dir>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/YMM4.ExtendedEffectsPack/YMM4.ExtendedEffectsPack.csproj" />
+    <Reference Include="YukkuriMovieMaker.Plugin;YukkuriMovieMaker.Controls;Vortice.Direct2D1;Vortice.Direct3D11;Vortice.DXGI;Vortice.DirectX;Vortice.Mathematics;SharpGen.Runtime;SharpGen.Runtime.COM;Newtonsoft.Json">
+      <HintPath>$(Ymm4Dir)/%(Identity).dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

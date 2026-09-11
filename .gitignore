@@ -1,0 +1,9 @@
+.tools/
+.reference/
+**/bin/
+**/obj/
+artifacts/
+*.user
+*.suo
+.vs/
+__pycache__/
